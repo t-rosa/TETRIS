@@ -6,6 +6,7 @@ Grid::Grid() {
     columnsCount = 10;
     cellSize = 30;
     Initialize();
+    colors = GetCellColors();
 }
 
 void Grid::Initialize() {
@@ -27,4 +28,11 @@ void Grid::Print() {
         }
         std::cout << std::endl;
     }
+}
+
+std::vector<Color> Grid::GetCellColors()
+{
+    const Color CYAN = {21,204,209,255};
+
+    return {DARKGRAY, GREEN, RED, ORANGE, YELLOW, PURPLE, CYAN, BLUE};
 }

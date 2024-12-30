@@ -1,4 +1,6 @@
 #pragma once
+#include <vector>
+#include <raylib.h>
 
 class Grid
 {
@@ -9,7 +11,9 @@ public:
     int grid[20][10];
 
 private:
+    std::vector<Color> GetCellColors();
     int rowsCount;
     int columnsCount;
     int cellSize;
+    std::vector<Color> colors;
 };
