@@ -1,4 +1,5 @@
 #include <raylib.h>
+#include "grid.h"
 
 int main()
 {
@@ -43,18 +44,22 @@ int main()
     const int CELL_WIDTH = WIDTH / COL_COUNT;
     const int CELL_HEIGHT = HEIGHT / ROW_COUNT;
 
+    Grid grid = Grid();
+    grid.Print();
+
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(DARK_BLUE);
+        
 
-        for (int i = 0; i < ROW_COUNT; i++)
-        {
-            for (int j = 0; j < COL_COUNT; j++)
-            {
-                DrawRectangleLines(CELL_WIDTH * j, CELL_HEIGHT * i, CELL_WIDTH, CELL_HEIGHT, WHITE);
-            }
-        }
+        // for (int i = 0; i < ROW_COUNT; i++)
+        // {
+        //     for (int j = 0; j < COL_COUNT; j++)
+        //     {
+        //         DrawRectangleLines(CELL_WIDTH * j, CELL_HEIGHT * i, CELL_WIDTH, CELL_HEIGHT, WHITE);
+        //     }
+        // }
 
         EndDrawing();
     }
