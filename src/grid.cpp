@@ -30,6 +30,22 @@ void Grid::Print() {
     }
 }
 
+void Grid::Draw()
+{
+    for (int row = 0; row < rowsCount; row++)
+    {
+        for (int column = 0; column < columnsCount; column++)
+        {
+            int cellX = column * cellSize + 1;
+            int cellY = row * cellSize + 1;
+            int cellValue = grid[row][column];
+            Color cellColor = colors[cellValue];
+
+            DrawRectangle(cellX, cellY, cellSize -1, cellSize -1, cellColor);
+        }
+    }
+}
+
 std::vector<Color> Grid::GetCellColors()
 {
     const Color CYAN = {21,204,209,255};

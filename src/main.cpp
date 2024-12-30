@@ -10,29 +10,18 @@ int main()
     InitWindow(WIDTH, HEIGHT, "TETRIS");
     SetTargetFPS(FPS);
 
-    const Color DARK_BLUE = {44, 44, 127, 255};
-
-    const int COL_COUNT = 10;
-    const int ROW_COUNT = 20;
-    const int CELL_WIDTH = WIDTH / COL_COUNT;
-    const int CELL_HEIGHT = HEIGHT / ROW_COUNT;
-
     Grid grid = Grid();
+    grid.grid[0][0] = 1;
+    grid.grid[3][5] = 4;
+    grid.grid[17][8] = 7;
     grid.Print();
 
     while (!WindowShouldClose())
     {
         BeginDrawing();
-        ClearBackground(DARK_BLUE);
+        ClearBackground(DARKBLUE);
         
-
-        // for (int i = 0; i < ROW_COUNT; i++)
-        // {
-        //     for (int j = 0; j < COL_COUNT; j++)
-        //     {
-        //         DrawRectangleLines(CELL_WIDTH * j, CELL_HEIGHT * i, CELL_WIDTH, CELL_HEIGHT, WHITE);
-        //     }
-        // }
+        grid.Draw();
 
         EndDrawing();
     }
