@@ -1,15 +1,18 @@
 #include "grid.h"
 #include <iostream>
+#include <vector>
 
-Grid::Grid() {
+Grid::Grid()
+{
     rowsCount = 20;
     columnsCount = 10;
     cellSize = 30;
-    Initialize();
     colors = GetCellColors();
+    Initialize();
 }
 
-void Grid::Initialize() {
+void Grid::Initialize()
+{
     for (int row = 0; row < rowsCount; row++)
     {
         for (int column = 0; column < columnsCount; column++)
@@ -19,7 +22,8 @@ void Grid::Initialize() {
     }
 }
 
-void Grid::Print() {
+void Grid::Print()
+{
     for (int row = 0; row < rowsCount; row++)
     {
         for (int column = 0; column < columnsCount; column++)
@@ -36,19 +40,27 @@ void Grid::Draw()
     {
         for (int column = 0; column < columnsCount; column++)
         {
-            int cellX = column * cellSize + 1;
-            int cellY = row * cellSize + 1;
             int cellValue = grid[row][column];
             Color cellColor = colors[cellValue];
+            int cellX = cellSize * column + 1;
+            int cellY = cellSize * row + 1;
 
-            DrawRectangle(cellX, cellY, cellSize -1, cellSize -1, cellColor);
+            DrawRectangle(cellX, cellY, cellSize - 1, cellSize - 1, cellColor);
         }
     }
 }
 
 std::vector<Color> Grid::GetCellColors()
 {
-    const Color CYAN = {21,204,209,255};
+    const Color CYAN = {44, 44, 127, 255};
 
-    return {DARKGRAY, GREEN, RED, ORANGE, YELLOW, PURPLE, CYAN, BLUE};
+    return {
+        BLACK,
+        YELLOW,
+        GREEN,
+        RED,
+        PURPLE,
+        CYAN,
+        BLUE
+    };
 }
