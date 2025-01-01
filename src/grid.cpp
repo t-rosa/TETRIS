@@ -1,6 +1,7 @@
 #include "grid.h"
 #include <iostream>
 #include <vector>
+#include "colors.h"
 
 Grid::Grid()
 {
@@ -48,19 +49,4 @@ void Grid::Draw()
             DrawRectangle(cellX, cellY, cellSize - 1, cellSize - 1, cellColor);
         }
     }
-}
-
-std::vector<Color> Grid::GetCellColors()
-{
-    const Color CYAN = {44, 44, 127, 255};
-
-    return {
-        BLACK,
-        YELLOW,
-        GREEN,
-        RED,
-        PURPLE,
-        CYAN,
-        BLUE
-    };
 }
