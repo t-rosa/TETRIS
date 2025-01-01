@@ -1,5 +1,6 @@
 #include <raylib.h>
 #include "grid.h"
+#include "blocks.cpp"
 
 int main()
 {
@@ -13,13 +14,14 @@ int main()
     grid.Initialize();
     grid.Print();
 
-    grid.grid[0][0] = 1;
+    LBlock block = LBlock();
 
     while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(WHITE);
         grid.Draw();
+        block.Draw();
 
         EndDrawing();
     }
